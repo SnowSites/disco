@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f1014">
+<title>Nosso Cantinho</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">♥</div><div><strong>Nosso Cantinho</strong><span>espaço privado</span></div></div>
+    <div class="server-card">
+      <div class="avatar">♡</div><div><b>Nós dois</b><small>Conexão privada</small></div>
+      <span class="online-dot"></span>
+    </div>
+    <div class="section-label">CONVERSAS</div>
+    <button class="channel active"><span>💬</span> Geral</button>
+    <button class="channel"><span>🎥</span> Vídeo</button>
+    <div class="connection-box">
+      <div class="section-label">SEU CÓDIGO</div>
+      <div class="id-row"><code id="my-id">Gerando...</code><button id="copy-id" title="Copiar">⧉</button></div>
+      <small>Envie este código para seu amor se conectar.</small>
+    </div>
+    <div class="profile">
+      <div class="avatar mini">♥</div><div><b>Você</b><small id="status-text">Inicializando...</small></div>
+      <button id="settings-btn" title="Configurações">⚙</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><div class="title"><span>#</span> Geral</div><div class="subtitle" id="connection-status">Conecte-se para começar uma chamada</div></div>
+      <div class="top-actions"><button class="icon-btn" id="copy-link" title="Copiar código">🔗</button><button class="icon-btn" id="theme-btn" title="Alternar aparência">☾</button></div>
+    </header>
+
+    <section class="content">
+      <div class="stage">
+        <div class="video-area" id="video-area">
+          <div class="empty-state" id="empty-state"><div class="empty-heart">♥</div><h2>Nosso cantinho</h2><p>Compartilhe o seu código e conecte-se com quem você ama.</p></div>
+          <div class="video-card local hidden" id="local-card"><video id="local-video" autoplay muted playsinline></video><span class="video-name">Você</span><span class="mic-badge" id="local-mic">🎙</span></div>
+          <div class="video-card remote hidden" id="remote-card"><video id="remote-video" autoplay playsinline></video><span class="video-name">Seu amor</span><span class="mic-badge" id="remote-mic">🎙</span></div>
+        </div>
+        <div class="call-panel">
+          <div class="connect-form"><input id="connect-id" type="text" autocomplete="off" placeholder="Código do seu amor..."><button id="call-btn" class="primary">♥ Conectar</button></div>
+          <div class="call-controls">
+            <button class="control" id="mic-btn" title="Microfone">🎙</button>
+            <button class="control" id="camera-btn" title="Câmera">📹</button>
+            <button class="control screen" id="share-screen-btn" title="Compartilhar tela">▣</button>
+            <button class="control danger" id="hangup-btn" title="Encerrar">☎</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="chat">
+        <div class="chat-head"><b>Mensagens</b><span id="chat-state">● offline</span></div>
+        <div class="messages" id="messages"><div class="welcome"><div>💌</div><b>Seu espaço de vocês</b><p>As mensagens desta sessão ficam aqui enquanto a página estiver aberta.</p></div></div>
+        <form class="message-form" id="message-form"><input id="message-input" maxlength="500" placeholder="Enviar uma mensagem..." autocomplete="off"><button>➤</button></form>
+      </aside>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
